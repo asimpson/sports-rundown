@@ -1,0 +1,24 @@
+baseURL = 'https://asimpson.github.io/sports-rundown/'
+languageCode = 'en-us'
+title = 'Morning Sports Rundown'
+theme = 'rundown'
+
+[outputs]
+  home = ['HTML', 'RSS']
+  section = ['HTML', 'RSS']
+
+[permalinks]
+  rundowns = '/:year/:month/:day/'
+
+[sitemap]
+  changefreq = 'daily'
+  priority = 0.5
+
+[params]
+  description = 'A daily morning sports rundown — scores, highlights, and what to watch.'
+
+[menu]
+  [[menu.main]]
+    name = 'RSS'
+    url = '/index.xml'
+    weight = 10

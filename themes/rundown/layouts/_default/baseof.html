@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="{{ site.Language.Lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ block "title" . }}{{ with .Title }}{{ . }} · {{ end }}{{ site.Title }}{{ end }}</title>
+  {{ with site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}
+  <link rel="stylesheet" href="{{ "css/site.css" | relURL }}">
+  {{ block "head" . }}{{ end }}
+</head>
+<body>
+  <div class="wrap">
+    <header class="site-header">
+      <p class="site-title"><a href="{{ site.Home.RelPermalink }}">{{ site.Title }}</a></p>
+      {{ with site.Params.description }}<p class="site-tagline">{{ . }}</p>{{ end }}
+    </header>
+    <main>
+      {{ block "main" . }}{{ end }}
+    </main>
+    <footer class="site-footer">
+      <a href="{{ "index.xml" | relURL }}">RSS</a>
+    </footer>
+  </div>
+  {{ block "scripts" . }}{{ end }}
+</body>
+</html>

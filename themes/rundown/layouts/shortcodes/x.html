@@ -1,0 +1,7 @@
+{{- $url := .Get "url" -}}
+{{- if not $url -}}
+{{- errorf "shortcode x: missing required url parameter in %s" .Page.File.Path -}}
+{{- end -}}
+{{- $label := .Get "label" | default "View post on X" -}}
+{{- $.Page.Store.Set "hasXEmbed" true -}}
+<span class="embed-x"><blockquote class="twitter-tweet" data-dnt="true"><a href="{{ $url }}">{{ $label }}</a></blockquote></span>

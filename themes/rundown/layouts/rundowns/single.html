@@ -1,0 +1,23 @@
+{{ define "title" }}{{ .Title }}{{ end }}
+{{ define "main" }}
+<article class="rundown">
+  <h1 class="rundown-title">{{ .Title }}</h1>
+  <p class="rundown-meta">
+    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Monday, October 2, 2006" }}</time>
+    · <a href="{{ site.Home.RelPermalink }}">home</a>
+  </p>
+  <div class="rundown-body">
+    {{ .Content }}
+  </div>
+</article>
+<p><a href="{{ site.Home.RelPermalink }}">← All rundowns</a></p>
+{{ end }}
+
+{{ define "scripts" }}
+{{ if .HasShortcode "x" }}
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+{{ end }}
+{{ if .HasShortcode "youtube" }}
+{{ partial "youtube-lite.js" . }}
+{{ end }}
+{{ end }}

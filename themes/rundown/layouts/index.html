@@ -1,0 +1,40 @@
+{{ define "title" }}{{ site.Title }}{{ end }}
+{{ define "main" }}
+{{ $pages := where site.RegularPages "Section" "rundowns" }}
+{{ $latest := index ($pages.ByDate.Reverse) 0 }}
+{{ if $latest }}
+<section class="latest-rundown" aria-label="Latest rundown">
+  <h1 class="rundown-title">{{ $latest.Title }}</h1>
+  <p class="rundown-meta">
+    <time datetime="{{ $latest.Date.Format "2006-01-02" }}">{{ $latest.Date.Format "Monday, October 2, 2006" }}</time>
+    · <a href="{{ $latest.RelPermalink }}">permalink</a>
+  </p>
+  <div class="rundown-body">
+    {{ $latest.Content }}
+  </div>
+</section>
+{{ end }}
+
+<section class="archive" aria-label="Past rundowns">
+  <h2>Archive</h2>
+  <ul>
+    {{ range $pages.ByDate.Reverse }}
+    <li>
+      <a href="{{ .RelPermalink }}">{{ .Date.Format "2006-01-02" }}</a>
+      — {{ .Title }}
+    </li>
+    {{ end }}
+  </ul>
+</section>
+{{ end }}
+
+{{ define "scripts" }}
+{{ $pages := where site.RegularPages "Section" "rundowns" }}
+{{ $latest := index ($pages.ByDate.Reverse) 0 }}
+{{ if and $latest ($latest.HasShortcode "x") }}
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+{{ end }}
+{{ if and $latest ($latest.HasShortcode "youtube") }}
+{{ partial "youtube-lite.js" . }}
+{{ end }}
+{{ end }}
