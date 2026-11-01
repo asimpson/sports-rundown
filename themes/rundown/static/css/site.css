@@ -146,6 +146,13 @@ main h2,
   font-size: inherit;
 }
 
+.embed-x iframe,
+iframe[id^="twitter-widget"] {
+  color-scheme: normal;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
 .embed-youtube {
   margin: 0.75rem 0;
   max-width: 100%;
