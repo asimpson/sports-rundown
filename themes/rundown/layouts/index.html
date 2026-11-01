@@ -32,6 +32,7 @@
 {{ $pages := where site.RegularPages "Section" "rundowns" }}
 {{ $latest := index ($pages.ByDate.Reverse) 0 }}
 {{ if and $latest ($latest.HasShortcode "x") }}
+<script>if(window.matchMedia('(prefers-color-scheme: dark)').matches){document.querySelectorAll('blockquote.twitter-tweet').forEach(function(el){el.setAttribute('data-theme','dark');});}</script>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 {{ end }}
 {{ if and $latest ($latest.HasShortcode "youtube") }}

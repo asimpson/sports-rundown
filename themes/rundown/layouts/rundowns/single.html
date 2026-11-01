@@ -15,6 +15,7 @@
 
 {{ define "scripts" }}
 {{ if .HasShortcode "x" }}
+<script>if(window.matchMedia('(prefers-color-scheme: dark)').matches){document.querySelectorAll('blockquote.twitter-tweet').forEach(function(el){el.setAttribute('data-theme','dark');});}</script>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 {{ end }}
 {{ if .HasShortcode "youtube" }}
