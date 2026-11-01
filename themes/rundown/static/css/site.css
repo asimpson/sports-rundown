@@ -146,6 +146,10 @@ main h2,
   font-size: inherit;
 }
 
+.embed-x iframe {
+  color-scheme: light;
+}
+
 .embed-youtube {
   margin: 0.75rem 0;
   max-width: 100%;
