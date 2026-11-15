@@ -1,4 +1,5 @@
 baseURL = 'https://asimpson.github.io/sports-rundown/'
+buildFuture = true
 languageCode = 'en-us'
 title = 'Morning Sports Rundown'
 theme = 'rundown'
